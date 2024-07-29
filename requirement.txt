@@ -1,0 +1,9 @@
+flask
+openai
+python-dotenv
+pandas
+openpyxl
+-qU langchain-text-splitters
+-U langchain-community faiss-cpu langchain-openai
+
+
