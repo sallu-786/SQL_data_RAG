@@ -26,22 +26,30 @@ Installation:
 
 
      python -m venv my_env
+
+
      my_env/Scripts/activate #activate virtual environment on windows
-3. Install dependencies:
+
+   
+4. Install dependencies:
 
 
      pip install -r requirements.txt
 
 
-4. Set up environment variables:
+5. Set up environment variables:
 
 
      Create a .env file in the project root and add your Azure OpenAI credentials:
+
+
      AZURE_OPENAI_ENDPOINT=your_endpoint     #if you dont have Azure Open Ai API and want to use local model please check my repository at: 
+
+
      AZURE_OPENAI_API_KEY=your_api_key
 
 
-5. Run the application:
+6. Run the application:
 
 
      python app.py
