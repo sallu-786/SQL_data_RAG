@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monokaku Chatbot</title>
+    <link rel="icon" src="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="./static/main.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="title">
+            <h1 class="greet">
+                <span>ようこそ</span>
+            </h1>
+        </div>
+        <div class="cards">
+
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='map.png') }}" class="custom-icon">
+                フロアマップ
+            </div>
+            
+            <div class="card">
+                <img src="{{ url_for('static', filename='car.png') }}" class="custom-icon">
+                車両アクセス
+            </div>
+            
+            <div class="card">
+                <img src="{{ url_for('static', filename='elevator.png') }}" class="custom-icon2">
+                荷役エレベーター
+            </div>
+            
+            <div class="card">
+                <img src="{{ url_for('static', filename='construct.png') }}" class="custom-icon">
+                工事情報
+            </div>
+            
+
+
+
+        </div>
+        
+        <div id="chat" class="chat-container ">
+
+
+        </div>
+        
+        <div class="input-container">
+            <input type="text" id="message" placeholder="メッセージを入力してください...">
+            <button class="button" onclick="sendMessage()">
+                <img src="{{ url_for('static', filename='send_icon.png') }}" alt="Send" class="send-icon">
+            </button>
+        </div>
+        <div class="bottom-message">
+            <p>Mono-Chat は間違いを犯すことがあります。情報を常に二重に確認してください</p>
+        </div>
+    </div>
+
+    <script src="./static/script.js"></script> 
+</body>
+</html>
+
