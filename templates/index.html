@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monokaku Chatbot</title>
+    <title>SQL Chatbot</title>
     <link rel="icon" src="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="./static/main.css"> <!-- Link to your CSS file -->
 </head>
@@ -13,7 +13,7 @@
     <div class="main">
         <div class="title">
             <h1 class="greet">
-                <span>ようこそ</span>
+                <span>Welcome</span>
             </h1>
         </div>
         <div class="cards">
@@ -21,22 +21,22 @@
 
             <div class="card">
                 <img src="{{ url_for('static', filename='map.png') }}" class="custom-icon">
-                フロアマップ
+                map
             </div>
             
             <div class="card">
                 <img src="{{ url_for('static', filename='car.png') }}" class="custom-icon">
-                車両アクセス
+                car
             </div>
             
             <div class="card">
                 <img src="{{ url_for('static', filename='elevator.png') }}" class="custom-icon2">
-                荷役エレベーター
+                elevator
             </div>
             
             <div class="card">
                 <img src="{{ url_for('static', filename='construct.png') }}" class="custom-icon">
-                工事情報
+                construction
             </div>
             
 
@@ -56,7 +56,7 @@
             </button>
         </div>
         <div class="bottom-message">
-            <p>Mono-Chat は間違いを犯すことがあります。情報を常に二重に確認してください</p>
+            <p>Chatbot can make mistakes, always double check info</p>
         </div>
     </div>
 
