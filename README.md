@@ -34,7 +34,7 @@ Installation:
 4. Install dependencies:
 
 
-     pip install -r requirements.txt
+     pip install -r requirement.txt
 
 
 5. Set up environment variables:
