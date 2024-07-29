@@ -1,0 +1,235 @@
+/* main.css */
+#root {
+  animation: fadeIn 2s;
+}
+@keyframes fadeIn{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+} 
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  position: relative; 
+  animation: fadeIn 1.5s;
+}
+
+.main {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  position: fixed; 
+  right: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  box-sizing: border-box; 
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.main .title {
+  margin: 1.5vh 0;
+  font-size: 2.25vw;
+  color: #c4c7c5;
+  font-weight: 300;
+  padding: 1.3vw;
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0; /* Start with opacity 0 to make it fade in */
+}
+
+@keyframes slideIn {
+  0% {
+      opacity: 0;
+      margin-left: -100%; /* Move from left outside the viewport */
+  }
+  100% {
+      opacity: 1;
+      margin-left: 0; /* Move to its original position */
+  }
+}
+
+.main .title span {
+  background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px 26px;
+  max-width: 73%; 
+}
+
+.card {
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  gap: 0.8rem;
+  width: 8rem;
+  height: 4.8rem; 
+  padding: 0.75rem;
+  border: 1px solid #ccc; 
+  border-radius: 16px; 
+  background-color: #ffffff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
+  text-align: center;
+  font-size: 1.2vw;
+  cursor: pointer; 
+}
+
+
+.card:hover {
+  background-color: #e0e0e0; 
+}
+
+.chat-container {
+  flex: 1;
+  width: 65%;
+  height: auto;
+  margin-top: 75px;
+  margin-bottom: 20px;
+  overflow-y: scroll;
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
+
+.message {
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 80%; 
+}
+
+.user-message {
+  background: #eff0f0;
+  font-size: 1.3vw;
+  align-self: flex-end; 
+  margin-left: auto; 
+  padding: 1.2vw 1.7vw; 
+  border-radius: 50px; 
+  max-width: 70%; 
+  word-wrap: break-word;
+  overflow-y: auto;
+}
+
+.bot-message {
+  font-size: 1.3vw;
+  align-self: flex-start; 
+  word-wrap: break-word; 
+  line-height: 2;
+  max-width: 92%;
+  overflow-y: auto;
+}
+
+.avatar {
+  width: 28px; 
+  height: 28px; 
+  border-radius: 50%;
+  margin-right: 10px;
+  align-self: flex-start; 
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5vw; 
+  background-color: #eff0f0;
+  padding: 1vw 2vw; 
+  border-radius: 40px;
+  width: 60%;
+}
+
+.input-container input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.4vw; 
+  font-size: 1.3vw; 
+}
+
+.input-container button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 1.5rem 1.5rem 1.5rem 1.5rem; /* or adjust as needed */
+}
+
+.input-container button .send-icon {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+}
+
+.input-container button:hover {
+  background-color: #e0e0e0; 
+}
+
+
+
+.bottom-message p {
+  padding-top: 5px;
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.spinner-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+}
+
+
+.custom-icon {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: #32cd32;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.custom-icon2 {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #32cd32;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

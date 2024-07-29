@@ -34,8 +34,6 @@ async function sendMessage(message = null) {
 
         const data = await response.json();
 
-        // console.log('Answer message:', data.answer);
-
         // Remove spinner
         spinnerElement.remove();
 
@@ -59,9 +57,8 @@ async function displayMessageWithDelay(message, className) {
 
     // Create avatar element
     const avatarElement = document.createElement('img');
-    avatarElement.src = 'static/tb_icon.png'; // Replace with actual URL
+    avatarElement.src = 'https://upload.wikimedia.org/wikipedia/commons/1/13/ChatGPT-Logo.png'; // Replace with actual URL
     avatarElement.className = 'avatar';
-    
     messageElement.appendChild(avatarElement);
 
     // Create a separate element for the text
@@ -71,12 +68,15 @@ async function displayMessageWithDelay(message, className) {
 
     chat.appendChild(messageElement);
 
-    await displayFormattedCharactersWithDelay(textElement, message);
+    // Display message with word-by-word delay and formatting
+    await displayFormattedWordsWithDelay(textElement, message);
 
+    // Scroll to the bottom of the chat container after message display
     chat.scrollTop = chat.scrollHeight;
 }
 
-async function displayFormattedCharactersWithDelay(textElement, message) {
+
+async function displayFormattedWordsWithDelay(textElement, message) {
     // Handle bold text
     let responseArray = message.split("**");
     let formattedMessage = "";
@@ -88,63 +88,36 @@ async function displayFormattedCharactersWithDelay(textElement, message) {
         }
     }
 
+    // Handle list items
     let lines = formattedMessage.split('\n');
     let inList = false;
-    let ulElement;
-
+    
     for (let line of lines) {
         if (line.trim().startsWith('-')) {
             if (!inList) {
-                ulElement = document.createElement('ul');
-                textElement.appendChild(ulElement);
+                textElement.insertAdjacentHTML('beforeend', '<ul>');
                 inList = true;
             }
-            const liElement = document.createElement('li');
-            ulElement.appendChild(liElement);
-            await displayLineWithDelay(liElement, line.trim().substring(1).trim());
+            let listItem = line.trim().substring(1).trim(); // Remove the '-' and leading/trailing spaces
+            textElement.insertAdjacentHTML('beforeend', `<li>${listItem}</li>`);
         } else {
             if (inList) {
+                textElement.insertAdjacentHTML('beforeend', '</ul>');
                 inList = false;
-                ulElement = null;
             }
-            await displayLineWithDelay(textElement, line);
-            if (line !== '') {
-                textElement.insertAdjacentHTML('beforeend', '<br>');
+            let words = line.split(' ');
+            for (let word of words) {
+                textElement.insertAdjacentHTML('beforeend', word + ' ');
+                const chatContainer = document.getElementById('chat');
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                await delay(25); // Adjust delay time as needed
             }
+            // textElement.insertAdjacentHTML('beforeend', '<br>');
         }
     }
-}
 
-async function displayLineWithDelay(element, text) {
-    const linkRegex = /\[([^\]]+)\]\(([^\)]+)\)/g;
-    let match;
-    let lastIndex = 0;
-
-    while ((match = linkRegex.exec(text)) !== null) {
-        // Display text before the link
-        await displayTextWithDelay(element, text.slice(lastIndex, match.index));
-
-
-        const linkText = match[1];
-        const linkUrl = match[2];
-        const linkElement = document.createElement('a');
-        linkElement.href = linkUrl;
-        linkElement.textContent = linkText;
-        element.appendChild(linkElement);
-
-        lastIndex = linkRegex.lastIndex;
-    }
-
-
-    await displayTextWithDelay(element, text.slice(lastIndex));
-}
-
-async function displayTextWithDelay(element, text) {
-    for (let char of text) {
-        element.insertAdjacentText('beforeend', char);
-        const chatContainer = document.getElementById('chat');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-        await delay(10); // Adjust delay time as needed
+    if (inList) {
+        textElement.insertAdjacentHTML('beforeend', '</ul>');
     }
 }
 
@@ -156,15 +129,16 @@ function displayMessage(message, className) {
     messageElement.textContent = message;
     chat.appendChild(messageElement);
 
-
+    // Scroll to the bottom of the chat container
     chat.scrollTop = chat.scrollHeight;
 }
 
-
+// Function for delay
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Function to set up click listeners for all cards
 function setupCardListeners() {
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
@@ -175,22 +149,15 @@ function setupCardListeners() {
     });
 }
 
-
+// Get the message input field
 const messageInput = document.getElementById('message');
 
-
+// Add event listener for keypress
 messageInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         sendMessage(); // Call sendMessage() when Enter key is pressed
     }
 });
 
-
+// Call setupCardListeners when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', setupCardListeners);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const sendButton = document.querySelector('button'); 
-    sendButton.addEventListener('click', function() {
-        sendMessage(); 
-    });
-});

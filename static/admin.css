@@ -1,0 +1,45 @@
+      body {
+          width: 100%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center; /* Centers the content horizontally */
+      }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      table, th, td {
+          border: 1px solid black;
+          overflow-wrap: break-word; /* Ensure long words wrap to next line */
+          word-break: break-all; /* Handle long URLs or strings without spaces */
+          text-align: center; /* Center-align content within cells */
+      }
+      th, td {
+          padding: 8px;
+      }
+      .header {
+          display: flex;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+      }
+      .header h1 {
+          margin: 0 auto;
+      }
+      .header button {
+          position: absolute;
+          right: 0;
+      }
+      .col-actions {
+          width: 10%; /* Adjust as needed */
+      }
+      .col-index {
+          width: 10%; /* Adjust as needed */
+      }
+      .col-keyword {
+          width: 20%; /* Adjust as needed */
+      }
+      .col-description {
+          width: 50%; /* Adjust as needed */
+      }
