@@ -53,3 +53,25 @@ Installation:
 
 
      python app.py
+
+
+
+
+Main Page Interface:
+
+
+   ![image](https://github.com/user-attachments/assets/01ecdebb-6a74-4d1c-8f28-133dc7b48cc4)
+
+
+Admin Page for Database Management:
+
+
+![image](https://github.com/user-attachments/assets/1af32e1c-b531-4b8c-add7-9228671c2e97)
+
+Log page for viewing chat log:
+
+![image](https://github.com/user-attachments/assets/8436e86f-286f-4881-8769-893cf982542a)
+
+
+   
+
