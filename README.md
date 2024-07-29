@@ -1,4 +1,4 @@
-Flask Chatbot and Data Management App
+Python-flask based Retrieval augmented Generation Chatbot and Database Management App
 
 
 This repository contains a Flask application that serves as a chatbot interface and data management system, integrating Azure OpenAI for chat responses and SQLite for database operations. The app is designed to handle chat interactions, log conversations, and manage data entries through a REST API.
