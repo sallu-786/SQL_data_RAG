@@ -19,10 +19,11 @@ Installation:
 
 
      git clone https://github.com/yourusername/flask-chatbot-app.git
+
      cd flask-chatbot-app
 
 
-2. Create and activate a virtual environment:
+3. Create and activate a virtual environment:
 
 
      python -m venv my_env
