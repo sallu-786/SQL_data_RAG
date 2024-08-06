@@ -48,9 +48,6 @@ Installation:
  
      AZURE_OPENAI_ENDPOINT=your_endpoint
 
-   
-
-
      AZURE_OPENAI_API_KEY=your_api_key
 
 
