@@ -44,7 +44,7 @@ Installation:
      Create a .env file in the project root and add your Azure OpenAI credentials:
 
 
-     AZURE_OPENAI_ENDPOINT=your_endpoint     #if you dont have Azure Open Ai API and want to use local model please check my repository at:  https://github.com/sallu-786/flask_chatbot_local
+     AZURE_OPENAI_ENDPOINT=your_endpoint                                        #if you dont have Azure Open Ai API and want to use local model please check my repository at:  https://github.com/sallu-786/flask_chatbot_local
 
 
      AZURE_OPENAI_API_KEY=your_api_key
