@@ -62,7 +62,8 @@ Installation:
 Main Page Interface:
 
 
-   ![image](https://github.com/user-attachments/assets/01ecdebb-6a74-4d1c-8f28-133dc7b48cc4)
+   ![image](https://github.com/user-attachments/assets/7a979521-3819-4ef0-bd1f-67261cdc08ba)
+
 
 
 Admin Page for Database Management:
